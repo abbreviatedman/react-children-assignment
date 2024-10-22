@@ -12,21 +12,21 @@ Use `Create React App` to set up the boilerplate for your application. Ensure yo
 
 2. Run the following command to create a new React application:
 
-   ```bash
-   npx create-react-app star-wars-data-app
-   ```
+```bash
+npx create-react-app star-wars-data-app
+```
 
 3. Navigate into your project directory:
 
-   ```bash
-   cd star-wars-data-app
-   ```
+```bash
+cd star-wars-data-app
+```
 
 4. Start the development server:
 
-   ```bash
-   npm start
-   ```
+```bash
+npm start
+```
 
 5. Open your browser and navigate to `http://localhost:3000` to see the default Create React App template.
 
@@ -78,8 +78,8 @@ Once you have reviewed and understood the structure of the JSON response, you ar
 Create a Navbar component that will serve as the top navigation bar for your app.
 
 1. Create a file named `Navbar.js` in the `src` directory.
-2. Inside `Navbar.js`, create a function that returns a `nav` element.
-3. Inside the `nav` element, add an `h1` element with the title "Star Wars Data App".
+2. Inside `Navbar.js`, create a function that returns a `div` element with the class `navbar`.
+3. Inside the `div` element, add an `h1` element with the title "Star Wars Data App".
 4. Below the `h1` element, create a `div` with the class name `links` to hold the navigation links.
 5. Use `props.children` inside the `links` div to render any child elements passed to the `Navbar` component.
 6. Export the `Navbar` function.
@@ -96,31 +96,34 @@ Create a CSS file named `Navbar.css` in the `src` directory and add the followin
   text-align: center;
 }
 
-.links {
+.navbar .links {
   margin-top: 10px;
 }
 
-.links a {
+.navbar .links a {
   color: white;
   margin: 0 10px;
   text-decoration: none;
 }
 
-.links a:hover {
+.navbar .links a:hover {
   text-decoration: underline;
 }
 ```
 
 ### Step 4: Use the Navbar Component
 
-1. Import the `Navbar` component in your `App` component.
-2. Add the `Navbar` component at the top of your `App` component's return statement.
-3. **In the App component's return**, place navigation links as children to the `Navbar` component, using `a` elements with `href` attributes set to `#home`, `#about`, and `#contact`.
-4. Add some placeholder content below the `Navbar` to ensure it's rendering correctly.
+1. Remove everything from the return statement in your `App.js` file.
+2. Remove the imports for the logo and the `App.css` file.
+3. Add a `div` element to the return statement in your `App.js` file.
+4. Import the `Navbar` component in your `App` component.
+5. Add the `Navbar` component as a child of the `div` element.
+6. **In the App component's return**, place navigation links as children to the `Navbar` component, using `a` elements with `href` attributes set to `#home`, `#about`, and `#contact`.
+7. Add some placeholder content below the `Navbar` to ensure it's rendering correctly. It should show your placeholder content below the a navbar with the title "Star Wars Data App" and the links.
 
-**Check:** Verify that the `Navbar` with links is displayed at the top of your app, and the links are styled correctly.
+**Check:** Verify that the `Navbar` with links is displayed at the top of your app, and the links are styled correctly. Then remove the placeholder content.
 
-Once you've added the `Navbar` component with its links to your `App.js` and confirmed it renders correctly, you’re ready to move on to the next step.
+Once you've added the `Navbar` component with its links to your `App.js`, confirmed it renders correctly, and removed the placeholder content, you’re ready to move on to the next step.
 
 ### Step 5: Design the Sidebar Component
 
@@ -149,7 +152,7 @@ Create a CSS file named `Sidebar.css` in the `src` directory and add the followi
   color: white;
 }
 
-.links {
+.sidebar .links {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -157,13 +160,13 @@ Create a CSS file named `Sidebar.css` in the `src` directory and add the followi
   padding-left: 20px;
 }
 
-.links a {
+.sidebar .links a {
   color: white;
   margin: 5px 0;
   text-decoration: none;
 }
 
-.links a:hover {
+.sidebar .links a:hover {
   text-decoration: underline;
 }
 ```
@@ -173,7 +176,6 @@ Create a CSS file named `Sidebar.css` in the `src` directory and add the followi
 1. Import the `Sidebar` component in your `App` component.
 2. Add the `Sidebar` component below the `Navbar` component in your `App` component's return statement.
 3. **In the App component's return**, place navigation links as children to the `Sidebar` component, using `a` elements with `href` attributes set to `#people`, `#planets`, and `#starships`.
-4. Add some placeholder content to ensure the Sidebar is rendering correctly.
 
 **Check:** Verify that the `Sidebar` with links is displayed correctly alongside the `Navbar`, and the links are styled correctly.
 
@@ -197,6 +199,7 @@ Create a CSS file named `ParentComponent.css` in the `src` directory and add the
 ```css
 .parent-container {
   padding: 20px;
+  margin: 20px 20px 20px 270px;
   background: #f0f0f0;
   border: 2px solid #ccc;
   border-radius: 8px;
@@ -231,8 +234,6 @@ Create a CSS file named `ParentComponent.css` in the `src` directory and add the
 Once you've added the `ParentComponent` with its title to your `App.js` and confirmed it renders correctly, you’re ready to move on to the next step.
 
 ### Step 9: Create the Child Component
-
-Create a child component t### Step 9: Create the Child Component
 
 Create a child component that will display the data fetched from the Star Wars API.
 
@@ -282,3 +283,10 @@ Once you've confirmed it works, you've completed the assignment.
 - You’ve created a parent component that displays child components.
 
 Congratulations on completing the assignment! Feel free to ask if you need further assistance or have any questions.
+
+### Bonus
+
+1. Add more child components to display data from other endpoints in the Star Wars API.
+2. Add a loading spinner to the child components while the data is being fetched.
+3. Add "next" and "previous" buttons to the child components to navigate through the data. (Hint: Use the `next` and `previous` properties in the API response.)
+4. Add a search bar to the child component to search for a particular person.
